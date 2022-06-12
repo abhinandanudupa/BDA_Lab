@@ -1,0 +1,910 @@
+Script started on 2022-06-06 16:34:02+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="237" LINES="53"]
+]777;notify;Command completed;exit\]777;precmd\]0;user@fedora:~/Labs/Sem_6/BDA/Lab_3\]7;file://fedora/home/user/Labs/Sem_6/BDA/Lab_3\[?2004h[user@fedora Lab_3]$ cqlsh
+[?2004l
+]777;preexec\Connected to [0;1;34mTest Cluster[0m at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 3.11.13 | CQL spec 3.4.4 | Native protocol v4]
+Use HELP for help.
+[?2004hcqlsh> describe keyspaces
+[?2004l
+
+students       system_auth  library             employee     
+system_schema  system       system_distributed  system_traces
+
+[?2004hcqlsh> 
+[Kcqlsh> 
+[Kcqlsh> d[KDROP employee
+[?2004l
+[?2004h   ... ;
+[?2004l
+[0;1;31mSyntaxException: line 1:5 no viable alternative at input 'employee' ([DROP] employee...)[0m
+[?2004hcqlsh> DROP employee ;[C
+[Kcqlsh> DROP employee ;
+[Kcqlsh> DROP employee ;
+[Kcqlsh> DROP employee ;[C[1@ [1@K[1@E[1@Y[1@S[1@P[1@A[1@C[1@E[C[1@ 
+[?2004l
+[?2004hcqlsh> DROP KEYSPACE  employee ;
+[C[C[C[C[C[C[C[C[C[C[C[C[10P[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C;[KDROP employee
+[C[C[C[C[C[C[Cdescribe keyspaces
+[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P keyspaces
+[C[C[C[C[C[C[C[1Pkeyspaces
+[C[C[C[C[C[C[C[1Peyspaces[1Pyspaces[1Pspaces[1Ppaces[1Paces[1Pces[1Pes[1Ps[KDESCRIBE KEYSPACES;
+[?2004l
+
+students       system_auth  library             system_traces
+system_schema  system       system_distributed
+
+[?2004hcqlsh> CREATE KEY [KSPACE employee WITH replication [K[K[K[K[K[K[Kcation={}'}'}c'}l'}a'}s'}s'}[C:} }'}'}S'}i'}m'}p'}l'}e'}S'}t'}r'}a'}t'}e'}g'}y'}[C,} }'}'}r'}e'}p'}l'}i'}c'}a'}t'}i'}o'}n'}_'}f'}a'}c'}t'}o'}e'}[1P'}r'}[C:} }'}[1P}1}[C;
+[?2004l
+[?2004hcqlsh> CREATE KEYSPACE employee WITH replication={'class': 'SimpleStrategy', 'replication_factor': 1};
+[C[C[C[C[C[C[CDESCRIBE KEYSPACES;[K
+[?2004l
+
+students       system_auth  library             employee     
+system_schema  system       system_distributed  system_traces
+
+[?2004hcqlsh> USE employee ;
+[?2004l
+[?2004hcqlsh:employee> CREATE TABLE employee_info ()[K
+[?2004l
+[?2004h            ... id INT,
+[?2004l
+[?2004h            ... name TEXT,
+[?2004l
+[?2004h            ... desg TEXT,
+[?2004l
+[?2004h            ... doj data[Ke,
+[?2004l
+[?2004h            ... salary float,
+[?2004l
+[?2004h            ... dept[Kartment TEST[2Psalary float,[4Pdoj date,esg TEXT,[?2004l
+
+[?2004hcqlsh:employee> salary float,[4Pdoj date,esg TEXT,name[C[C[C[C[C[C[3Pid INT,CREATE TABLE employee_info (
+[?2004l
+[?2004h            ... id INT,
+[?2004l
+[?2004h            ... name TEXT,
+[?2004l
+[?2004h            ... desg TEXT,
+[?2004l
+[?2004h            ... doj DATE,
+[?2004l
+[?2004h            ... salary FLOAT,
+[?2004l
+[?2004h            ... depart TEXT,
+[?2004l
+[?2004h            ... PRMARY KKEY90[K[K()i)d),) )s)a)l)a)r)y)[C
+[?2004l
+[?2004h            ... );
+[?2004l
+[0;1;31mSyntaxException: line 8:11 mismatched input '(' expecting ')' (...,depart TEXT,PRMARY KKEY[(]...)[0m
+[?2004hcqlsh:employee> CREATE TABLE employee_info ( id INT, name TEXT, desg TEXT, doj DATE, salary FLOAT, depart TEXT, PRMARY KKEY(id, salary) );[A);[K
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CCREATE TABLE employee_info ( id INT, name TEXT, desg TEXT, doj DATE, salary FLOAT, depart TEXT, PRMARY KKEY(id, salary) );[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CIMAR[1@Y[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+[?2004l
+[?2004hcqlsh:employee> d[KDESCRIBE TABLES;
+[?2004l
+
+employee_info
+
+[?2004hcqlsh:employee> DESCRIBE employee_info 
+[?2004l
+
+CREATE TABLE employee.employee_info (
+    id int,
+    salary float,
+    depart text,
+    desg text,
+    doj date,
+    name text,
+    PRIMARY KEY (id, salary)
+) WITH CLUSTERING ORDER BY (salary ASC)
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '64', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 1.0
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99PERCENTILE';
+
+[?2004hcqlsh:employee> BEGIN BATCH
+[?2004l
+[?2004h            ... INSERT INTO employee_info ()i)d),) )n)a)m)e),) )d)e)s)g),) )d)o)j),) )s)s)a)l)a)r)y)[1Palary)[C[C[C[C[C[C,) )d)e)p)a)t)r)[1P)[1P)r)t)[C VALUES ()1)2)1),) )')')A')[C,) )')')M')a')n')a')g')e')r')[C,) )')')2')0')2')2')-') [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0')[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C5')
+0')[1P)
+[1P)
+-)0)5)'),) )5)0)0)0).)0),) )')')T')e')s')t')i')n')g')[C[C;
+[?2004l
+[?2004h            ... INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (121, 'A', 'Manager', '2022-05-05', 5000.0, 'Testing');
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', 'Manager', '2022-05-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CB', 'Manager', '2022-05-[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, 'B', 'Manager', '2022-05-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C2, 'B', 'Manager', '2022-05-[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05', 5[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-05-05', 50[C[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CA', '2022-05-05', 5[C[C[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs', '2022-05-05', [1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs', '2022-05-05',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co', '2022-05-05'[1@,[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc', '2022-05-05[1@'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci', '2022-05-0[1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca', '2022-05-[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct', '2022-05[1@-[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce', '2022-0[1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[1P[1@6[C[C[C[C[1P[1@4[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l
+[?2004h            ... INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (122, 'B', 'Associate', '2022-05-06', 4000.0, 'Testing');
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, 'B', 'Associate', '2022-05[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C3, 'B', 'Associate', '2022-0[1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', 'Associate', '2022-05[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C3', 'Associate', '2022-0[1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[C[1P[1@4
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssociate', '2022-04[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cociate', '2022-04-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cociate', '2022-04-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cciate', '2022-04-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciate', '2022-04-06'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cate', '2022-04-06',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cte', '2022-04-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce', '2022-04-06', 4[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-04-06', 40[C[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CC', '2022-04-06', 4[C[C[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CE', '2022-04-06', [1@4[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CO', '2022-04-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P');[1P');[1P');[1P');[1P');[1P');[1P');M');a');n');a');g');e');m');e');n');t');[C[C[C
+[?2004l
+[?2004h            ... INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (123, '3', 'CEO', '2022-04-06', 4000.0, 'Management');
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', 'CEO', '2022-04-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CD', 'CEO', '2022-04-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, 'D', 'CEO', '2022-04-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C4, 'D', 'CEO', '2022-04-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C6-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[1P[1@3[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P');[1P');[1P');[1P');[1P');[1P');[1P');[1P');[1P');[1P');H');R');[C[C[C
+[?2004l
+[?2004h            ... APPLY BATCH;
+[?2004l
+[?2004hcqlsh:employee> SL[KELECT * FROM employee_info ;
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m
+-----+--------+------------+-----------+------------+------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33m3[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m
+
+(4 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KUPDATE employee_info  SET name=''C'[C WHERE id= =[C 123 AND salary = 4000; ;[C
+[?2004l
+[?2004hcqlsh:employee> UPDATE employee_info  SET name='C' WHERE id = 123 AND salary = 4000 ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40PSELECT * FROM employee_info[C[C
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m
+-----+--------+------------+-----------+------------+------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m
+
+(4 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40@UPDATE employee_info  SET name='C' WHERE id = 123 AND salary = 4000[C[C[1@,[C[1@ [1@s[1@a[1@l[1@a[1@r[1@y[C[1@ [1@=[C[1@ [1@6[1@-[1P[1@0[1@0[1@0
+[?2004l
+[0;1;31mInvalidRequest: Error from server: code=2200 [Invalid query] message="PRIMARY KEY part salary found in SET part"[0m
+[?2004hcqlsh:employee> UPDATE employee_info  SET name='C', salary = 6000 WHERE id = 123 AND salary = 4000 ;[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P
+[?2004l
+[0;1;31mInvalidRequest: Error from server: code=2200 [Invalid query] message="PRIMARY KEY part salary found in SET part"[0m
+[?2004hcqlsh:employee> UPDATE employee_info  SET salary = 6000 WHERE id = 123 AND salary = 4000 ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10@name='C', [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[55PSELECT * FROM employee_info[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40@UPDATE employee_info  SET name='C' WHERE id = 123 AND salary = 4000[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40PSELECT * FROM employee_info[C[C
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m
+-----+--------+------------+-----------+------------+------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m
+
+(4 rows)
+[?2004hcqlsh:employee> ALTE [KR TANLE em-[K[K[K[K[K[K[KBLE employee_info SE[K[KADD project TEXT;
+[?2004l
+[?2004hcqlsh:employee> ALTER TABLE employee_info ADD project TEXT;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14PSELECT * FROM employee_info ;
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |    [0;1;31mnull[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |    [0;1;31mnull[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;31mnull[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |    [0;1;31mnull[0m
+
+(4 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CALTER TABLE employee_info ADD project TEXT;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14PSELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[45@UPDATE employee_info  SET salary = 6000 WHERE id = 123 AND salary = 4000[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10@name='C', [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@p[1@r[1@o[1@j[1@e[1@c[1@t[C[1@ [1@=[C[1@ [1@'[1@'[1@O[1@r[1@i[1@o[1@n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l
+[?2004hcqlsh:employee> UPDATE employee_info  SET project = 'Orion' WHERE id = 123 AND salary = 4000 ;[1P[1@1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@5[1P[1P[1P[1P[1P[1@P[1@a[1@y[1@X
+[?2004l
+[?2004hcqlsh:employee> UPDATE employee_info  SET project = 'PayX' WHERE id = 121 AND salary = 5000 ;[1P[1@2[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@4[C[1P[1P[1P[1P[1@O[1@r[1@i[1@o[1@n
+[?2004l
+[?2004hcqlsh:employee> UPDATE employee_info  SET project = 'Orion' WHERE id = 122 AND salary = 4000 ;[1P[1@4[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@3[1P[1P[1P[1P[1@r[1@i[1@o[1@n[1P[1P[1P[1P[1P[1@G[1@e[1@n[1@S[1@e[1@n
+[?2004l
+[?2004hcqlsh:employee> UPDATE employee_info  SET project = 'GenSen' WHERE id = 124 AND salary = 3000 ;[1POrion' WHERE id = 122 AND salary = 4[C[C[C[C[C[1PPayX' WHERE id = 121 AND salary = 5[C[C[C[C[C[1@Orion' WHERE id = 123 AND salary = 4[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[49PSELECT * FROM employee_info[C[C
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |   [0;1;33mOrion[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |   [0;1;33mOrion[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;33mPayX[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |  [0;1;33mGenSen[0m
+
+(4 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[50@UPDATE employee_info  SET project = 'GenSen' WHERE id = 124 AND salary = 3000[C[C[1POrion' WHERE id = 122 AND salary = 4[C[C[C[C[C[1PPayX' WHERE id = 121 AND salary = 5[C[C[C[C[C[1@Orion' WHERE id = 123 AND salary = 4[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[49PSELECT * FROM employee_info[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CALTER TABLE employee_info ADD project TEXT;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14PSELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[45@UPDATE employee_info  SET salary = 6000 WHERE id = 123 AND salary = 4000[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10@name='C', [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[55PSELECT * FROM employee_info[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40@UPDATE employee_info  SET name='C' WHERE id = 123 AND salary = 4000[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40PSELECT * FROM employee_info[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CBEGIN BATCH INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (121, 'A', 'Manager', '2022-05-05', 5000.0, 'Testing'); INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (122, 'B', 'Associate', '2022-05-06', 4000.0, 'Testing'); INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (123, '3', 'CEO', '2022-04-06', 4000.0, 'Management'); INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'); APPLY BATCH;[C[K[K[K[K[K[K[K[K[K[K[K[K[K
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C=INSERT INTO employee_info (id, name, desg, doj, salary, dep[1@a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart)[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) V[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VA[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VAL[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALU[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (1[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (12[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '20[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '202[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 30[C[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 300[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.[1P[A[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0[1P[A[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0,[1P 'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, [1P'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, '[1PHR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'H[1PR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR[1P');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'[1P);[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR')[1P;[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR');[K[A
+INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'); 
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CIN[1P
+
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINS[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSER[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT I[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT IN[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO e[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO em[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emp[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO empl[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emplo[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employ[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employe[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_in[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_inf[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, n[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, na[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, nam[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, des[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, do[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, s[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sal[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sala[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, dep[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart)[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) V[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VA[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VAL[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALU[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (1[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (12[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '20[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '202[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 30[C[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 300[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.[1P[A[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0[1P[A[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0,[1P 'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, [1P'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, '[1PHR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'H[1PR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR[1P');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'[1P);[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR')[1P;[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR');[K[A
+INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'); 
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CIN[1P
+
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINS[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSER[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT I[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT IN[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO e[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO em[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emp[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO empl[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emplo[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employ[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employe[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_in[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_inf[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, n[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, na[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, nam[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, des[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, do[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, s[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sal[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sala[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, dep[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart)[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) V[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VA[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VAL[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALU[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (1[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (12[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '20[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '202[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 30[C[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 300[C[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000[1P[A[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.[1P[A[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0[1P[A[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0,[1P 'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, [1P'HR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, '[1PHR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'H[1PR');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR[1P');[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'[1P);[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR')[1P;[AINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR');[K[A
+INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06', 3000.0, 'HR'); 
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CIN[1P
+
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINS[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSER[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT I[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT IN[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INT[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO e[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO em[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emp[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO empl[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO emplo[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employ[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employe[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_in[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_inf[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (i[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, n[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, na[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, nam[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, des[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, do[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, s[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sal[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, sala[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, de[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, dep[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depa[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depar[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart)[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) V[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VA[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VAL[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALU[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES ([1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (1[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (12[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124,[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CE[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '20[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '202[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CNSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-0[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06'[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (124, 'D', 'CEO', '2022-06-06',[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C ;U;S;I;N;G; ;T;T;L;(;);[1P;[1P; ;3;0;
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, 'D', 'CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C5, 'D', 'CEO', '2022-06-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', 'CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CE', 'CEO', '2022-06-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CEO', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CO', '2022-06-06', 3[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-06-06', 30[C[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CA', '2022-06-06', 3[C[C[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs', '2022-06-06', [1@3[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs', '2022-06-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-06-06', [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-06-06', 3[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C', '2022-06-06', 30[C[C[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CI', '2022-06-06', 3[C[C[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn', '2022-06-06', [1@3[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct', '2022-06-06',[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce', '2022-06-06'[1@,[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr', '2022-06-06[1@'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn', '2022-06-0[1@6[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-06[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C7-0[1@6[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[1P[C[C[1P[1@1[1@5[C[C[C[C[C[C[C[1P[1P[1@P[1@a[1@y[1@X[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l
+[?2004hcqlsh:employee> INSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'PayX') USING TTL 30;[A
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSELECT * FROM employee_info ;[K
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[50@UPDATE employee_info  SET project = 'GenSen' WHERE id = 124 AND salary = 3000[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[50PSELECT * FROM employee_info[C[C
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |   [0;1;33mOrion[0m
+ [0;1;32m125[0m |   [0;1;32m1500[0m |       [0;1;33mPayX[0m |    [0;1;33mIntern[0m | [0;1;32m2022-07-06[0m |    [0;1;33mE[0m |    [0;1;31mnull[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |   [0;1;33mOrion[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;33mPayX[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |  [0;1;33mGenSen[0m
+
+(5 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'PayX') USING TTL 30;[ASELECT * FROM employee_info ;[K
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[KUP[K[KSELECT * FROM employee_info ;[1P[1@T[1@T[1@L[1@([1@)[1@n[1@a[1@m[1@e[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CW;H;E;R;E; ;i;d;=;1;2;5; ;a;n;d; ;s;a;l;a;r;y;=;1;5;0;0;
+[?2004l
+
+ [0;1;35mttl(name)[0m
+-----------
+
+(0 rows)
+[?2004hcqlsh:employee> SELECT TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[36P* FROM employee_info ;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'PayX') USING TTL 30;[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C,) VALUES (125, 'E', 'Intern', '2022-07-[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C ) VALUES (125, 'E', 'Intern', '2022-07[1@-[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cp) VALUES (125, 'E', 'Intern', '2022-0[1@7[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr) VALUES (125, 'E', 'Intern', '2022-[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co) VALUES (125, 'E', 'Intern', '2022[1@-[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cj) VALUES (125, 'E', 'Intern', '202[1@2[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce) VALUES (125, 'E', 'Intern', '20[C[1@2[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc) VALUES (125, 'E', 'Intern', '2[1@0[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct) VALUES (125, 'E', 'Intern', '[1@2[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@,[1@:[1P[1@'[1@'[1@D[1@e[1@v[1@e[1@l[1@o[1@p[1@e[1@r[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@T[1@e[1@s[1@t[1@i[1@n
+[?2004l
+[?2004hcqlsh:employee> INSERT INTO employee_info (id, name, desg, doj, salary, depart, project) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'Testin','PayX') USING TTL 30;[A
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[36PSELECT TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l
+
+ [0;1;35mttl(name)[0m
+-----------
+        [0;1;32m26[0m
+
+(1 rows)
+[?2004hcqlsh:employee> SELECT TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart, project) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'Testin','PayX') USING TTL 30;[A
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[36PSELECT TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[36P* FROM employee_info ;
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |   [0;1;33mOrion[0m
+ [0;1;32m125[0m |   [0;1;32m1500[0m |     [0;1;33mTestin[0m |    [0;1;33mIntern[0m | [0;1;32m2022-07-06[0m |    [0;1;33mE[0m |    [0;1;33mPayX[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |   [0;1;33mOrion[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;33mPayX[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |  [0;1;33mGenSen[0m
+
+(5 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info ;TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSERT INTO employee_info (id, name, desg, doj, salary, depart, project) VALUES (125, 'E', 'Intern', '2022-07-06', 1500.0, 'Testin','PayX') USING TTL 30;[A
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[36PSELECT TTL(name) FROM employee_info WHERE id=125 and salary=1500;
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l
+
+ [0;1;35mttl(name)[0m
+-----------
+
+(0 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info E[KWHERE id IN ()1)2),) )[1P)[1P)1),) )1)2)2),) )1)2)3),) )1)2)4)[C ORDER BY salary;
+[?2004l
+[0;1;31mInvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot page queries with both ORDER BY and a IN restriction on the partition key; you must either remove the ORDER BY or the IN and sort client side, or disable paging for this query"[0m
+[?2004hcqlsh:employee> SELECT * FROM employee_info WHERE id IN (121, 122, 123, 124) ORDER BY salary;
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpaging [K[K[K[K[K[K[KPAGIG[KNG OFF
+[?2004l
+Disabled Query paging.
+[?2004hcqlsh:employee> PAGING OFFSELECT * FROM employee_info WHERE id IN (121, 122, 123, 124) ORDER BY salary;
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |  [0;1;33mGenSen[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |   [0;1;33mOrion[0m
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |   [0;1;33mOrion[0m
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;33mPayX[0m
+
+(4 rows)
+[?2004hcqlsh:employee> SELECT * FROM employee_info WHERE id IN (121, 122, 123, 124) ORDER BY salary; ;D;E;S;C;
+[?2004l
+
+ [0;1;31mid[0m  | [0;1;36msalary[0m | [0;1;35mdepart[0m     | [0;1;35mdesg[0m      | [0;1;35mdoj[0m        | [0;1;35mname[0m | [0;1;35mproject[0m
+-----+--------+------------+-----------+------------+------+---------
+ [0;1;32m121[0m |   [0;1;32m5000[0m |    [0;1;33mTesting[0m |   [0;1;33mManager[0m | [0;1;32m2022-05-05[0m |    [0;1;33mA[0m |    [0;1;33mPayX[0m
+ [0;1;32m122[0m |   [0;1;32m4000[0m |    [0;1;33mTesting[0m | [0;1;33mAssociate[0m | [0;1;32m2022-05-06[0m |    [0;1;33mB[0m |   [0;1;33mOrion[0m
+ [0;1;32m123[0m |   [0;1;32m4000[0m | [0;1;33mManagement[0m |       [0;1;33mCEO[0m | [0;1;32m2022-04-06[0m |    [0;1;33mC[0m |   [0;1;33mOrion[0m
+ [0;1;32m124[0m |   [0;1;32m3000[0m |         [0;1;33mHR[0m |       [0;1;33mCEO[0m | [0;1;32m2022-06-06[0m |    [0;1;33mD[0m |  [0;1;33mGenSen[0m
+
+(4 rows)
+[?2004hcqlsh:employee> exit
+[?2004l
+]777;notify;Command completed;cqlsh\]777;precmd\]0;user@fedora:~/Labs/Sem_6/BDA/Lab_3\]7;file://fedora/home/user/Labs/Sem_6/BDA/Lab_3\[?2004h[user@fedora Lab_3]$ exit
+[?2004l
+]777;preexec\exit
+
+Script done on 2022-06-06 16:57:59+05:30 [COMMAND_EXIT_CODE="0"]
+
+
+
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 3.11.12 | CQL spec 3.4.4 | Native protocol v4]
+Use HELP for help.
+cqlsh> SELECT * FROM students.student_info ;
+
+ roll_no | doj | grade | name
+---------+-----+-------+------
+
+(0 rows)
+cqlsh> BEGIN BATCH
+   ... INSERT INTO student.stud
+              <identifier>  <quotedName>  
+   ... INSERT INTO student.student_info VALUES (1, 'A', '20222-05-05', 9.0)
+   ... APPLY BATCH;
+SyntaxException: line 2:33 no viable alternative at input 'VALUES' (...BATCHINSERT INTO student.student_info [VALUES]...)
+cqlsh> BEGIN BATCH INSERT INTO student.student_info VALUES (1, '2022-05-05', 9.0, 'A') APPLY BATCH;
+SyntaxException: line 1:45 no viable alternative at input 'VALUES' (...BATCH INSERT INTO student.student_info [VALUES]...)
+cqlsh> BEGIN BATCH INSERT INTO students.student_info VALUES (1, '2022-05-05', 9.0, 'A') APPLY BATCH;
+SyntaxException: line 1:46 no viable alternative at input 'VALUES' (...BATCH INSERT INTO students.student_info [VALUES]...)
+cqlsh> BEGIN BATCH INSERT INTO students.student_info VALUES (1, 'A', '20222-05-05', 9.0) APPLY BATCH;
+SyntaxException: line 1:46 no viable alternative at input 'VALUES' (...BATCH INSERT INTO students.student_info [VALUES]...)
+cqlsh> use students
+   ... ;
+cqlsh:students> BEGIN BATCH 
+            ... INSERT INTO student_info VALUES (1, '2022-03-03', 9.0, 'A')
+            ... APPLY BATCH
+            ... ;
+SyntaxException: line 2:25 no viable alternative at input 'VALUES' (BEGIN BATCH INSERT INTO [student_info] VALUES...)
+cqlsh:students> BEGIN BATCH  INSERT INTO student_info VALUES (1, 'A', '2022-03-03', 9.0) APPLY BATCH ;
+SyntaxException: line 1:38 no viable alternative at input 'VALUES' (BEGIN BATCH  INSERT INTO [student_info] VALUES...)
+cqlsh:students> BEGIN BATCH  INSERT INTO student_info VALUES (1,'A','2022-03-03',9.0) APPLY BATCH ;
+SyntaxException: line 1:38 no viable alternative at input 'VALUES' (BEGIN BATCH  INSERT INTO [student_info] VALUES...)
+cqlsh:students>  INSERT INTO student_info VALUES (1,'A','2022-03-03',9.0);
+SyntaxException: line 1:25 no viable alternative at input 'VALUES' (INSERT INTO [student_info] VALUES...)
+cqlsh:students>  INSERT INTO student_info (roll_no, name, doj, grade) VALUES (1,'A','2022-03-03',9.0);
+cqlsh:students> BEGIN BATCH
+            ... INSERT INTO student_info (roll_no, name, doj, grade) VALUES (1, 'B', '2022-04-04', 9);
+            ... INSERT INTO student_info (roll_no, name, doj, grade) VALUES (3, 'C', '2022-06-04', 7);
+            ... INSERT INTO student_info (roll_no, name, doj, grade) VALUES (4, 'D', '2022-04-14', 7);
+            ... APPLY BATCH;
+cqlsh:students> BEGIN BATCH  INSERT INTO student_info VALUES (1, 'A', '2022-03-03', 9.0) APPLY BATCH ;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(3 rows)
+cqlsh:students> BEGIN BATCH INSERT INTO student_info (roll_no, name, doj, grade) VALUES (1, 'A', '2022-04-04', 9); INSERT INTO student_info (roll_no, name, doj, grade) VALUES (2, 'B', '2022-06-26', 7); APPLY BATCH;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> SELECT * FROM student_info WHERE roll_no IN (2, 3);
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(2 rows)
+cqlsh:students> SELECT * FROM student_info WHERE name IN ('A', 'D');
+InvalidRequest: Error from server: code=2200 [Invalid query] message="IN predicates on non-primary-key columns (name) is not yet supported"
+cqlsh:students> CREATE INDEX ON student_info (name);
+cqlsh:students> SELECT * FROM student_info WHERE name IN ('A', 'D');
+InvalidRequest: Error from server: code=2200 [Invalid query] message="IN predicates on non-primary-key columns (name) is not yet supported"
+cqlsh:students> SELECT * FROM student_info WHERE name IN ('A', 'D');
+InvalidRequest: Error from server: code=2200 [Invalid query] message="IN predicates on non-primary-key columns (name) is not yet supported"
+cqlsh:students> SELECT * FROM student_info WHERE name = 'A';
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+
+(1 rows)
+cqlsh:students> SELECT * FROM student_info WHERE name = 'A' LIMIT 0;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="LIMIT must be strictly positive"
+cqlsh:students> SELECT * FROM student_info WHERE name = 'A' LIMIT 1;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+
+(1 rows)
+cqlsh:students> SELECT * FROM student_info LIMIT 1;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+
+(1 rows)
+cqlsh:students> SELECT * FROM student_info LIMIT 4;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET name = 'AA' WHERE name = 'A';
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Some partition key parts are missing: roll_no"
+cqlsh:students> UPDATE student_info SET name = 'AA' WHERE name = 'A' AND roll_no = 1;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Non PRIMARY KEY columns found in where clause: name "
+cqlsh:students> UPDATE student_info SET name = 'AA' WHERE roll_no = 1;
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |   AA
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET roll_no = 100 WHERE roll_no = 1;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="PRIMARY KEY part roll_no found in SET part"
+cqlsh:students> UPDATE student_info SET name = 'A', SET graade = 8 WHERE roll_no = 1;
+SyntaxException: line 1:36 no viable alternative at input 'SET' (... SET name = 'A', [SET]...)
+cqlsh:students> UPDATE student_info SET name = 'A'AND graade = 8 WHERE roll_no = 1;
+SyntaxException: line 1:34 mismatched input 'AND' expecting K_WHERE (... student_info SET name = 'A'[AND]...)
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     9 |   AA
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET name = 'A', grade = 8 WHERE roll_no = 1;
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     7 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET grade = 9;;
+SyntaxException: line 1:33 mismatched input ';' expecting K_WHERE (... student_info SET grade = 9[;])
+SyntaxException: line 1:0 no viable alternative at input ';' ([;])
+cqlsh:students> UPDATE student_info SET grade = 9;
+SyntaxException: line 1:33 mismatched input ';' expecting K_WHERE (... student_info SET grade = 9[;])
+cqlsh:students> DELETE grade FROM student_info WHERE roll_no = 4;
+cqlsh:students> UPDATE student_info SET grade = 9;
+SyntaxException: line 1:33 mismatched input ';' expecting K_WHERE (... student_info SET grade = 9[;])
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |  null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET grade = 9 WHERE roll_no = 3;
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |  null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     9 |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET grade = 7 WHERE roll_no = 3;
+cqlsh:students> UPDATE student_info SET grade = 9 WHERE roll_no = 4;
+cqlsh:students> SELECT * FROM student_info LIMIT 100;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    C
+
+(4 rows)
+cqlsh:students> SELECT * FROM student_info WHERE name = 'A' ALLOW FILTERING;
+
+ roll_no | doj                             | grade | name
+---------+---------------------------------+-------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    A
+
+(1 rows)
+cqlsh:students> ALTER TABLE student_info ADD hobbies set<text>;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies | name
+---------+---------------------------------+-------+---------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    null |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    null |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 |    null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    null |    C
+
+(4 rows)
+cqlsh:students> ALTER TABLE student_info ADD hobbies language<text>;
+SyntaxException: line 1:45 mismatched input '<' expecting EOF (... TABLE student_info ADD hobbies language[<]...)
+cqlsh:students> ALTER TABLE student_info ADD language list<text>;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies | language | name
+---------+---------------------------------+-------+---------+----------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 |    null |     null |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 |    null |     null |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 |    null |     null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 |    null |     null |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET hobbies = {'chess', 'tennis', 'cricket'};
+SyntaxException: line 1:64 mismatched input ';' expecting K_WHERE (... {'chess', 'tennis', 'cricket'}[;])
+cqlsh:students> UPDATE student_info SET hobbies = {'chess', 'tennis', 'cricket'} WHERE roll_no IN (1,2,3,4);
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language | name
+---------+---------------------------------+-------+--------------------------------+----------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} |     null |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |     null |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} |     null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |     null |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET hobbies = {'kannada', 'english'} WHERE roll_no IN (1,2,3,4);
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                | language | name
+---------+---------------------------------+-------+------------------------+----------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'english', 'kannada'} |     null |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'english', 'kannada'} |     null |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'english', 'kannada'} |     null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'english', 'kannada'} |     null |    C
+
+(4 rows)
+cqlsh:students> UPDATE student_info SET hobbies = {'chess', 'tennis', 'cricket'} WHERE roll_no IN (1,2,3,4);
+cqlsh:students> UPDATE student_info SET language = {'kannada', 'english'} WHERE roll_no IN (1,2,3,4);
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Invalid set literal for language of type list<text>"
+cqlsh:students> UPDATE student_info SET language = ('kannada', 'english') WHERE roll_no IN (1,2,3,4);
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Invalid tuple type literal for language of type list<text>"
+cqlsh:students> UPDATE student_info SET language = ['kannada', 'english'] WHERE roll_no IN (1,2,3,4);
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    C
+
+(4 rows)
+cqlsh:students> DELETE language[1] FROM student_info WHERE roll_no = 2;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    C
+
+(4 rows)
+cqlsh:students> DELETE language[0] FROM student_info WHERE roll_no = 3;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english'] |    C
+
+(4 rows)
+cqlsh:students> ALTER TABLE student_info ADD books_borrowed counter;
+ConfigurationException: Cannot add a counter column (books_borrowed) in a non counter column family
+cqlsh:students> ALTER TABLE student_info ADD books_borrowed int;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | books_borrowed | doj                             | grade | hobbies                        | language               | name
+---------+----------------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 |           null | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 |           null | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 |           null | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    D
+       3 |           null | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english'] |    C
+
+(4 rows)
+cqlsh:students> DELETE books_bo student_info ADD books_borrowed int;
+              <identifier>  <quotedName>  
+cqlsh:students> ALTER TABLE DELETE books_borrowed FROM student_info;
+SyntaxException: line 1:12 no viable alternative at input 'DELETE' (ALTER TABLE [DELETE]...)
+cqlsh:students> ALTER TABLE student_info DELETE books_borrowed ;
+SyntaxException: line 1:25 no viable alternative at input 'DELETE' (ALTER TABLE [student_info] DELETE...)
+cqlsh:students> CREATE TABLE library_counter (
+            ... books_borrowed counter,
+            ... name text,
+            ... title text,
+            ... date_of_borrow date,
+            ... date_of_return date,
+            ... )
+            ... ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="No PRIMARY KEY specifed (exactly one required)"
+cqlsh:students> CREATE TABLE library_counter ( books_borrowed counter, name text, title text, date_of_borrow date, date_of_return date, PRIMARY KEY(name, title) ) ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot mix counter and non counter columns in the same table"
+cqlsh:students> ALTER TABLE student_info DROP books_borrowed;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english'] |    C
+
+(4 rows)
+cqlsh:students> CREATE TABLE library_counter ( books_borrowed counter, name text, title text, date_of_borrow date, date_of_return date, PRIMARY KEY(name, title) ) ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot mix counter and non counter columns in the same table"
+cqlsh:students> CREATE TABLE library_counter ( books_borrowed counter, name text, title text, date_of_borrow date, date_of_return date, PRIMARY KEY((name, title), date_of_borrow, date_of_return) ) ;
+cqlsh:students> SELECT * FROM library_counter  ;
+
+ name | title | date_of_borrow | date_of_return | books_borrowed
+------+-------+----------------+----------------+----------------
+
+(0 rows)
+cqlsh:students> SELECT * FROM library_counter  ;
+
+ name | title | date_of_borrow | date_of_return | books_borrowed
+------+-------+----------------+----------------+----------------
+
+(0 rows)
+cqlsh:students> ALTER TABLE library_counter DROP date_of_return, date_of_borrow ;
+SyntaxException: line 1:47 mismatched input ',' expecting EOF (ALTER TABLE library_counter DROP date_of_return[,]...)
+cqlsh:students> ALTER TABLE library_counter DROP date_of_return, DROP date_of_borrow ;
+SyntaxException: line 1:47 mismatched input ',' expecting EOF (ALTER TABLE library_counter DROP date_of_return[,]...)
+cqlsh:students> ALTER TABLE library_counter DROP date_of_return;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot drop PRIMARY KEY part date_of_return"
+cqlsh:students> DROP TABLE library_counter ;
+cqlsh:students> SELECT * FROM library_counter  ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table library_counter"
+cqlsh:students> CREATE TABLE library_counter ( books_borrowed counter, name text, title text, PRIMARY KEY(name, title) ) ;
+cqlsh:students> SELECT * FROM library_counter  ;
+
+ name | title | books_borrowed
+------+-------+----------------
+
+(0 rows)
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + 5, name = 'A', title = 'Textbooks for geniuses';
+SyntaxException: line 1:108 mismatched input ';' expecting K_WHERE (...= 'A', title = 'Textbooks for geniuses'[;])
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + 5, name = 'A', title = 'Textbooks for geniuses' ;
+SyntaxException: line 1:109 mismatched input ';' expecting K_WHERE (... 'A', title = 'Textbooks for geniuses' [;])
+cqlsh:students> UPDATE student_info SET language = [] WHERE roll_no = 4;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} |                   null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english'] |    C
+
+(4 rows)
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + 5 WHERE name = 'A', title = 'Textbooks for geniuses' ;
+SyntaxException: line 1:79 mismatched input ',' expecting EOF (... 5 WHERE name = 'A'[,]...)
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + 5 AND name = 'A' AND title = 'Textbooks for geniuses' ;
+SyntaxException: line 1:63 mismatched input 'AND' expecting K_WHERE (...books_borrowed = books_borrowed + 5 [AND]...)
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + 5 WHERE name = 'A' AND title = 'Textbooks for geniuses' ;
+cqlsh:students> SELECT * FROM student_info ;
+
+ roll_no | doj                             | grade | hobbies                        | language               | name
+---------+---------------------------------+-------+--------------------------------+------------------------+------
+       1 | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english'] |    A
+       2 | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada'] |    B
+       4 | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} |                   null |    D
+       3 | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english'] |    C
+
+(4 rows)
+cqlsh:students> SELECT * FROM library_counter ;
+
+ name | title                  | books_borrowed
+------+------------------------+----------------
+    A | Textbooks for geniuses |              5
+
+(1 rows)
+cqlsh:students> UPDATE library_counter SET books_borrowed = books_borrowed + -55 WHERE name = 'A' AND title = 'Textbooks for geniuses' ;
+cqlsh:students> SELECT * FROM library_counter ;
+
+ name | title                  | books_borrowed
+------+------------------------+----------------
+    A | Textbooks for geniuses |            -50
+
+(1 rows)
+cqlsh:students> CREATE TABLE ttl_table (
+            ... pwd text,
+            ... user_name
+            ... );
+SyntaxException: line 4:0 no viable alternative at input ')' (... (pwd text,user_name[)]...)
+cqlsh:students> CREATE TABLE ttl_table WITH ( pwd text, user_name );
+SyntaxException: line 1:23 mismatched input 'WITH' expecting '(' (CREATE TABLE ttl_table [WITH] (...)
+cqlsh:students> CREATE TABLE ttl_table ( pwd text, user_name text, PRIMARY KEY (user_name, pwd));
+cqlsh:students> SELECT * FROM ttl_table ;
+
+ user_name | pwd
+-----------+-----
+
+(0 rows)
+cqlsh:students> INSERT INTO ttl_table (user_name, pwd) VALUES ('A', 'temp_password') USING TTL 30;
+cqlsh:students> SELECT * FROM ttl_table ;
+
+ user_name | pwd
+-----------+---------------
+         A | temp_password
+
+(1 rows)
+cqlsh:students> SELECT TTL(*) FROM ttl_table ;
+SyntaxException: line 1:11 no viable alternative at input '*' (SELECT TTL([*]...)
+cqlsh:students> SELECT TTL(pwd) FROM ttl_table ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot use selection function ttl on PRIMARY KEY part pwd"
+cqlsh:students> SELECT TTL(pwd) FROM ttl_table WHERE user_name = 'A';
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Cannot use selection function ttl on PRIMARY KEY part pwd"
+cqlsh:students> SELECT * FROM ttl_table WHERE user_name = 'A';
+
+ user_name | pwd
+-----------+-----
+
+(0 rows)
+cqlsh:students> DROP TABLE ttl_table ;
+cqlsh:students> CREATE TABLE ttl_table ( pwd text, user_name text, PRIMARY KEY (user_name));
+cqlsh:students> INSERT INTO ttl_table (user_name, pwd) VALUES ('A', 'temp_password') USING TTL 30;
+cqlsh:students> SELECT * FROM ttl_table 
+            ... ;
+
+ user_name | pwd
+-----------+---------------
+         A | temp_password
+
+(1 rows)
+cqlsh:students> SELECT TTL(pwd) FROM ttl_table  WHERE uSER_NAME  = 'A' ;
+
+ ttl(pwd)
+----------
+
+(0 rows)
+cqlsh:students> INSERT INTO ttl_table (user_name, pwd) VALUES ('A', 'temp_password') USING TTL 30;
+cqlsh:students> SELECT * FROM ttl_table  ;
+
+ user_name | pwd
+-----------+---------------
+         A | temp_password
+
+(1 rows)
+cqlsh:students> SELECT TTL(pwd) FROM ttl_table  WHERE uSER_NAME  = 'A' ;
+
+ ttl(pwd)
+----------
+       23
+
+(1 rows)
+cqlsh:students> SELECT * FROM ttl_table  ;
+
+ user_name | pwd
+-----------+-----
+
+(0 rows)
+cqlsh:students> ALTER TABLE ttl_table ALTER pwd TYPE int;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Altering of types is not allowed"
+cqlsh:students> ALTER TABLE ttl_table ALTER pwd TYPE int;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Altering of types is not allowed"
+cqlsh:students> ALTER TABLE ttl_table ALTER pwd TYPE varchar;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Altering of types is not allowed"
+cqlsh:students> COPY student_info (name, grade, hobbies, language, doj) TO 'my_test.csv';
+Using 7 child processes
+
+Starting copy of students.student_info with columns [name, grade, hobbies, language, doj].
+Processed: 4 rows; Rate:      19 rows/s; Avg. rate:      19 rows/s
+4 rows exported to 1 files in 0.227 seconds.
+cqlsh:students> DROP TABLE student_info ;
+cqlsh:students> CREATE TABLE student_info (name text, grade float, hobbies set<text>, language list<text>, doj timestamp);
+InvalidRequest: Error from server: code=2200 [Invalid query] message="No PRIMARY KEY specifed (exactly one required)"
+cqlsh:students> CREATE TABLE student_info (name text, grade float, hobbies set<text>, language list<text>, doj timestamp, PRIMARY KEY (name));
+cqlsh:students> SELECT * FROM student_info ;
+
+ name | doj | grade | hobbies | language
+------+-----+-------+---------+----------
+
+(0 rows)
+cqlsh:students> COPY 
+library_counter      student_info         students.            system.              system_auth.         system_distributed.  system_schema.       system_traces.       ttl_table            
+cqlsh:students> COPY student_info (name, grade, hobbies, language, doj) FROM 'my_test.csv'
+            ... ;
+Using 7 child processes
+
+Starting copy of students.student_info with columns [name, grade, hobbies, language, doj].
+Processed: 4 rows; Rate:       6 rows/s; Avg. rate:       9 rows/s
+4 rows imported from 1 files in 0.442 seconds (0 skipped).
+cqlsh:students> SELECT * FROM student_info ;
+
+ name | doj                             | grade | hobbies                        | language
+------+---------------------------------+-------+--------------------------------+------------------------
+    C | 2022-06-03 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['english']
+    B | 2022-06-25 18:30:00.000000+0000 |     7 | {'chess', 'cricket', 'tennis'} |            ['kannada']
+    A | 2022-04-03 18:30:00.000000+0000 |     8 | {'chess', 'cricket', 'tennis'} | ['kannada', 'english']
+    D | 2022-04-13 18:30:00.000000+0000 |     9 | {'chess', 'cricket', 'tennis'} |                   null
+
+(4 rows)
+cqlsh:students> cat 'my_test.csv'
+            ... ;
+SyntaxException: line 1:0 no viable alternative at input 'cat' ([cat]...)
+cqlsh:students> SELECT * FROM system.schema_keyspaces
+            ... ;
+InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table schema_keyspaces"
+cqlsh:students> exit
+
+
